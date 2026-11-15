@@ -1,0 +1,21 @@
+..........................................................................................................
+----------------------------------------------------------------------
+Ran 106 tests in 1.448s
+
+OK
+no held-out set yet
+..................................
+----------------------------------------------------------------------
+Ran 34 tests in 1.193s
+
+OK
+PASS: README numerals are present in generated results or the version allowlist.
+Trace | Mode | I1 | I2 | I3 | I5 | I6 | I7
+I4 (cross-run determinism) is checked separately.
+results/vh/traces/00005_S1_prompt_only.jsonl | prompt_only | 0 | 0 | 0 | 0 | 0 | 0
+results/vh/traces/00084_S2_harness.jsonl | harness | 0 | 0 | 0 | 0 | 0 | 0
+results/vh/traces/00171_S3_harness.jsonl | harness | 0 | 0 | 0 | 0 | 0 | 0
+results/vh/traces/01218_S4_harness.jsonl | harness | 0 | 0 | 0 | 0 | 0 | 0
+results/vh/traces/01462_S3_bare.jsonl | bare | 0 | 0 | 0 | 0 | 0 | 0
+No opted-in voice attempts recorded; calibration was not measured.
+28d18f2

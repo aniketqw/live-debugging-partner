@@ -1,0 +1,19 @@
+{"data":{"catch_prob":1.0,"fault_p":0.0,"mode":"harness","model":"oracle","scenario":"S3","seed":3},"kind":"start","seq":0,"stage":"call","t":0}
+{"data":{"text":"Roll back staging checkout-api to release one one.","turn":1},"kind":"say","seq":1,"stage":"caller","t":0}
+{"data":{"faults":[],"transcript":"Roll back staging checkout-api to release one one.","turn":1},"kind":"out","seq":2,"stage":"asr","t":0}
+{"data":{"spans":[{"end":49,"orig":"one one","start":42,"value":"11"}],"text":"Roll back staging checkout-api to release 11.","turn":1},"kind":"out","seq":3,"stage":"norm","t":0}
+{"data":{"text":"I will roll back staging checkout-api to release one one. Say yes to confirm or no to cancel.","tool_calls":[{"args":{"release":"11","service":"checkout-api"},"id":"turn-1","name":"rollback_deployment"}]},"kind":"resp","seq":4,"stage":"model","t":0}
+{"data":{"call_id":"turn-1","from":null,"job":1,"name":"rollback_deployment","out":null,"to":"proposed"},"kind":"transition","seq":5,"stage":"ledger","t":0}
+{"data":{"call_id":"turn-1","from":"proposed","job":1,"name":"rollback_deployment","out":null,"to":"announced"},"kind":"transition","seq":6,"stage":"ledger","t":0}
+{"data":{"call_id":"turn-1","name":"rollback_deployment","shown_args":{"release":"11","service":"checkout-api"},"text":"I will roll back staging checkout-api to release one one. Say yes to confirm or no to cancel."},"kind":"readback","seq":7,"stage":"gate","t":0}
+{"data":{"call_id":"turn-1","end_ms":7200,"start_ms":0,"template":"READBACK","text":"I will roll back staging checkout-api to release one one. Say yes to confirm or no to cancel."},"kind":"start","seq":8,"stage":"tts","t":0}
+{"data":{"cut_ms":1250,"n_words_spoken":3,"spoken_prefix":"I will roll"},"kind":"cut","seq":9,"stage":"tts","t":1000}
+{"data":{"content":"I will roll"},"kind":"assistant","seq":10,"stage":"history","t":1000}
+{"data":{"text":"No, cancel that.","turn":2},"kind":"say","seq":11,"stage":"caller","t":1000}
+{"data":{"faults":[],"transcript":"No, cancel that.","turn":2},"kind":"out","seq":12,"stage":"asr","t":1000}
+{"data":{"spans":[],"text":"No, cancel that.","turn":2},"kind":"out","seq":13,"stage":"norm","t":1000}
+{"data":{"call_id":"turn-1","transcript":"No, cancel that.","turn":2},"kind":"no","seq":14,"stage":"gate","t":1000}
+{"data":{"call_id":"turn-1","from":"announced","job":1,"name":"rollback_deployment","out":"dropped","to":"cancelled"},"kind":"transition","seq":15,"stage":"ledger","t":1000}
+{"data":{"call_id":"turn-1","end_ms":3800,"start_ms":1000,"template":"CANCELLED","text":"Okay, I cancelled it. Nothing was changed."},"kind":"start","seq":16,"stage":"tts","t":1000}
+{"data":{"content":"Okay, I cancelled it. Nothing was changed."},"kind":"assistant","seq":17,"stage":"history","t":3800}
+{"data":{"final_state":{"services":{"checkout-api":{"active_release":"12","environment":"staging","rollback_targets":["10","11"]}}},"model_error":false,"state_hash":"f45eb24d132921b75bd337569035cd885625f0a295c7e967b80500015c53a677","success":true,"talk_over_ms":250},"kind":"end","seq":18,"stage":"call","t":3800}

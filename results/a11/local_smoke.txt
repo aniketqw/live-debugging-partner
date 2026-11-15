@@ -1,0 +1,5 @@
+Path: loopback only; hosted inference blocked.
+Generation attempts: 1
+Result: completed
+Expected tool call observed: False
+Local recording reproduced off-network: True

@@ -1,0 +1,5 @@
+{
+  "models": [
+    {"name": "llama3.1:latest", "tools_supported": true, "route": "local-only"}
+  ]
+}

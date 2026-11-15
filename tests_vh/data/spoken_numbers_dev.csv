@@ -1,0 +1,71 @@
+spoken,expected
+zero,0
+one,1
+two,2
+three,3
+four,4
+five,5
+six,6
+seven,7
+eight,8
+nine,9
+ten,10
+eleven,11
+twelve,12
+thirteen,13
+fourteen,14
+fifteen,15
+sixteen,16
+seventeen,17
+eighteen,18
+nineteen,19
+twenty,20
+thirty,30
+forty,40
+fifty,50
+sixty,60
+seventy,70
+eighty,80
+ninety,90
+twenty one,21
+twenty-one,21
+thirty five,35
+forty-four,44
+fifty zero,fifty zero
+sixty nine,69
+seventy-three,73
+eighty eight,88
+ninety-nine,99
+one one,11
+one two three four,1234
+zero one,01
+oh five,05
+five oh,50
+oh,oh
+Oh please,Oh please
+double one,11
+double oh,00
+triple nine,999
+double two four oh five,22405
+two triple zero three,20003
+double eleven,double eleven
+double,double
+triple,triple
+1 1,11
+11,11
+01,01
+v11,v11
+v-11,v-11
+release eleven,release 11
+release One One,release 11
+"no, it is one zero","no, it is 10"
+eleven hundred,eleven hundred
+twelve thousand,twelve thousand
+one lakh,one lakh
+eleven point one,eleven point one
+one hundred and eleven,one hundred and eleven
+eleven ten,eleven ten
+do,do
+a deployment,a deployment
+use checkout-api,use checkout-api
+"",""

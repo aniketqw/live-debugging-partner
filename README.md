@@ -1,5 +1,46 @@
 # Live Debugging Partner
 
+## Staging voice harness
+
+The staging lab tests whether code-enforced confirmation helps an assistant manage a **mock** deployment when a release number is misheard, corrected, or cancelled. It includes a deterministic benchmark and a local browser console. It never runs deployment commands and does not require an Ollama account.
+
+### Run the browser demo
+
+Install **Python 3.12** and **Node.js 22.12 or later** with npm. From a terminal:
+
+```sh
+git clone https://github.com/aniketqw/live-debugging-partner.git
+cd live-debugging-partner
+(cd demo/web && npm ci --no-audit --no-fund && npm run build)
+python3.12 -m demo.server
+```
+
+Open [http://127.0.0.1:8765](http://127.0.0.1:8765).
+
+- **Compare modes:** run the fixed mishearing and see what bare mode and the harness each change.
+- **Live session:** send a rollback request, acknowledge the read-back, then send a separate `yes`. The acknowledgment itself does not change the release. Typing works without microphone permissions.
+- **Replay** plays a saved trace without executing its actions. **Benchmark** displays the scripted results.
+
+The [demo runbook](demo/README.md) covers development, port conflicts, and optional browser speech. Native microphone behavior depends on the browser and has not been validated with human samples; see the [manual checklist](demo/MANUAL_TEST.md).
+
+### Run the simulation and tests
+
+Only Python is needed for these commands. Run them from the repository root:
+
+```sh
+python3.12 -m unittest discover -s tests_vh -t .
+python3.12 -m unittest discover -s tests -t .
+python3.12 -m vh.bench --grid smoke --output-dir /tmp/staging-voice-smoke
+python3.12 scripts/check_invariants.py /tmp/staging-voice-smoke/traces
+python3.12 -m vh.bench --grid full --models scripted --output-dir /tmp/staging-voice-full
+```
+
+The two HTTP test modules use ephemeral loopback ports; run them in an environment that allows local sockets. For the browser unit tests, run `(cd demo/web && npm test)` after installing dependencies.
+
+See the [benchmark report](results/vh/RESULTS.md), [harness design and results](README_VH.md), and [example correction trace](results/vh/traces/00084_S2_harness.jsonl). The benchmark uses scripted models and simulated speech; it is not a production or speech-recognition evaluation.
+
+## Original debugging simulator
+
 A simulator that tests one question before anyone builds the real thing:
 
 **When a voice agent works next to you on a running app, does interactive voice (barge-in, self-correction, "that error" bound to your screen, ledger-aware timing) beat a good text interface with an interrupt button?**

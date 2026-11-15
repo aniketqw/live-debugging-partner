@@ -1,0 +1,32 @@
+{"data":{"catch_prob":1.0,"fault_p":0.0,"mode":"harness","model":"oracle","scenario":"S2","seed":1},"kind":"start","seq":0,"stage":"call","t":0}
+{"data":{"text":"Roll back staging checkout-api to release one one.","turn":1},"kind":"say","seq":1,"stage":"caller","t":0}
+{"data":{"faults":[{"after":"zero","before":"one","index":46,"kind":"digit_sub"}],"transcript":"Roll back staging checkout-api to release one zero.","turn":1},"kind":"out","seq":2,"stage":"asr","t":0}
+{"data":{"spans":[{"end":50,"orig":"one zero","start":42,"value":"10"}],"text":"Roll back staging checkout-api to release 10.","turn":1},"kind":"out","seq":3,"stage":"norm","t":0}
+{"data":{"text":"I will roll back staging checkout-api to release one zero. Say yes to confirm or no to cancel.","tool_calls":[{"args":{"release":"10","service":"checkout-api"},"id":"turn-1","name":"rollback_deployment"}]},"kind":"resp","seq":4,"stage":"model","t":0}
+{"data":{"call_id":"turn-1","from":null,"job":1,"name":"rollback_deployment","out":null,"to":"proposed"},"kind":"transition","seq":5,"stage":"ledger","t":0}
+{"data":{"call_id":"turn-1","from":"proposed","job":1,"name":"rollback_deployment","out":null,"to":"announced"},"kind":"transition","seq":6,"stage":"ledger","t":0}
+{"data":{"call_id":"turn-1","name":"rollback_deployment","shown_args":{"release":"10","service":"checkout-api"},"text":"I will roll back staging checkout-api to release one zero. Say yes to confirm or no to cancel."},"kind":"readback","seq":7,"stage":"gate","t":0}
+{"data":{"call_id":"turn-1","end_ms":7200,"start_ms":0,"template":"READBACK","text":"I will roll back staging checkout-api to release one zero. Say yes to confirm or no to cancel."},"kind":"start","seq":8,"stage":"tts","t":0}
+{"data":{"content":"I will roll back staging checkout-api to release one zero. Say yes to confirm or no to cancel."},"kind":"assistant","seq":9,"stage":"history","t":7200}
+{"data":{"text":"No, it is one one.","turn":2},"kind":"say","seq":10,"stage":"caller","t":7200}
+{"data":{"faults":[],"transcript":"No, it is one one.","turn":2},"kind":"out","seq":11,"stage":"asr","t":7200}
+{"data":{"spans":[{"end":17,"orig":"one one","start":10,"value":"11"}],"text":"No, it is 11.","turn":2},"kind":"out","seq":12,"stage":"norm","t":7200}
+{"data":{"call_id":"turn-1","transcript":"No, it is 11.","turn":2},"kind":"other","seq":13,"stage":"gate","t":7200}
+{"data":{"call_id":"turn-1","from":"announced","job":1,"name":"rollback_deployment","out":"dropped","to":"cancelled"},"kind":"transition","seq":14,"stage":"ledger","t":7200}
+{"data":{"call_id":"turn-1","reason":"superseded"},"kind":"abort","seq":15,"stage":"gate","t":7200}
+{"data":{"text":"I will roll back staging checkout-api to release one one. Say yes to confirm or no to cancel.","tool_calls":[{"args":{"release":"11","service":"checkout-api"},"id":"turn-2","name":"rollback_deployment"}]},"kind":"resp","seq":16,"stage":"model","t":7200}
+{"data":{"call_id":"turn-2","from":null,"job":2,"name":"rollback_deployment","out":null,"to":"proposed"},"kind":"transition","seq":17,"stage":"ledger","t":7200}
+{"data":{"call_id":"turn-2","from":"proposed","job":2,"name":"rollback_deployment","out":null,"to":"announced"},"kind":"transition","seq":18,"stage":"ledger","t":7200}
+{"data":{"call_id":"turn-2","name":"rollback_deployment","shown_args":{"release":"11","service":"checkout-api"},"text":"I will roll back staging checkout-api to release one one. Say yes to confirm or no to cancel."},"kind":"readback","seq":19,"stage":"gate","t":7200}
+{"data":{"call_id":"turn-2","end_ms":16800,"start_ms":7200,"template":"READBACK","text":"Okay, I dropped the earlier request. I will roll back staging checkout-api to release one one. Say yes to confirm or no to cancel."},"kind":"start","seq":20,"stage":"tts","t":7200}
+{"data":{"content":"Okay, I dropped the earlier request. I will roll back staging checkout-api to release one one. Say yes to confirm or no to cancel."},"kind":"assistant","seq":21,"stage":"history","t":16800}
+{"data":{"text":"yes","turn":3},"kind":"say","seq":22,"stage":"caller","t":16800}
+{"data":{"faults":[],"transcript":"yes","turn":3},"kind":"out","seq":23,"stage":"asr","t":16800}
+{"data":{"spans":[],"text":"yes","turn":3},"kind":"out","seq":24,"stage":"norm","t":16800}
+{"data":{"call_id":"turn-2","transcript":"yes","turn":3},"kind":"yes","seq":25,"stage":"gate","t":16800}
+{"data":{"call_id":"turn-2","from":"announced","job":2,"name":"rollback_deployment","out":null,"to":"running_changing"},"kind":"transition","seq":26,"stage":"ledger","t":16800}
+{"data":{"args":{"release":"11","service":"checkout-api"},"call_id":"turn-2","name":"rollback_deployment","ok":true,"result":{"active_release":"11","environment":"staging","previous_release":"12","service":"checkout-api"},"tool_kind":"irrev"},"kind":"exec","seq":27,"stage":"tool","t":16800}
+{"data":{"call_id":"turn-2","end_ms":20000,"start_ms":16800,"template":"EXEC_OK","text":"Done. staging checkout-api is now on release 11."},"kind":"start","seq":28,"stage":"tts","t":16800}
+{"data":{"call_id":"turn-2","from":"running_changing","job":2,"name":"rollback_deployment","out":null,"to":"done_irreversible"},"kind":"transition","seq":29,"stage":"ledger","t":18300}
+{"data":{"content":"Done. staging checkout-api is now on release 11."},"kind":"assistant","seq":30,"stage":"history","t":20000}
+{"data":{"final_state":{"services":{"checkout-api":{"active_release":"11","environment":"staging","rollback_targets":["10","11"]}}},"model_error":false,"state_hash":"ac52fd6bf3e1833fb730ea3fa959d6867c13fa06e9b6ccc71c4ac4e40f7cdb9b","success":true,"talk_over_ms":0},"kind":"end","seq":31,"stage":"call","t":20000}
